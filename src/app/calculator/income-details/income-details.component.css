@@ -1,0 +1,12 @@
+.income {
+  background: linear-gradient(var(--primary-dark), var(--primary-light));
+  padding: 3px;
+  border: 2px solid gray;
+  margin-bottom: 2px;
+  color: white;
+}
+
+.incomeDetails {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

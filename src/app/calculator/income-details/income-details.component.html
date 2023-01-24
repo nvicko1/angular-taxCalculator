@@ -1,0 +1,137 @@
+<div class="mx-2 my-2">
+  <div class="max-w-[1140px] m-auto w-full p-4">
+    <h2>What is your monthly income</h2>
+
+    <div class="mx-4">
+      <input
+        type="text"
+        class="w-full border p-2 mt-2 outline:solid-var lg:w-[400px]"
+        placeholder="0000&euro;"
+        (input)="handleIncome($event)"
+        value="{{ income }}"
+      />
+    </div>
+  </div>
+</div>
+<!-- income  -->
+<div class="my-4">
+  <div class="p-2">
+    <div class="income">
+      <h2 class="m-2">
+        Your Gross Income ${{ grossIncome(income, "monthly") }}
+      </h2>
+    </div>
+    <div class="income">
+      <h2 class="m-2">
+        Your net Income $ {{ netIncome(income, "monthly").toFixed(2) }}
+      </h2>
+    </div>
+    <div class="income">
+      <h2 class="m-2">
+        Tax $ {{ taxCalculator(income, "monthly").toFixed(2) }}
+      </h2>
+    </div>
+  </div>
+
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg m-2">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead
+        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+      >
+        <tr>
+          <th scope="col" class="px-6 py-3">FREQUENCY</th>
+          <th scope="col" class="px-6 py-3">GROSS INCOME</th>
+          <th scope="col" class="px-6 py-3">Tax</th>
+          <th scope="col" class="px-6 py-3">Net Income</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+        >
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            Weekly
+          </th>
+          <td class="px-6 py-4">
+            $ {{ grossIncome(income, "weekly").toFixed(2) }}
+          </td>
+          <td class="px-6 py-4">
+            $ {{ taxCalculator(income, "weekly").toFixed(2) }}
+          </td>
+          <td class="px-6 py-4">
+            $ {{ netIncome(income, "weekly").toFixed(2) }}
+          </td>
+        </tr>
+        <tr
+          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+        >
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            Fortnightly
+          </th>
+          <td class="px-6 py-4">
+            $ {{ grossIncome(income, "fortnightly").toFixed(2) }}
+          </td>
+          <td class="px-6 py-4">
+            $ {{ taxCalculator(income, "fortnightly").toFixed(2) }}
+          </td>
+          <td class="px-6 py-4">
+            $ {{ netIncome(income, "fortnightly").toFixed(2) }}
+          </td>
+        </tr>
+        <tr
+          class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600"
+        >
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            Monthly
+          </th>
+          <td class="px-6 py-4">$ {{ grossIncome(income, "monthly") }}</td>
+          <td class="px-6 py-4">
+            $ {{ taxCalculator(income, "monthly").toFixed(2) }}
+          </td>
+          <td class="px-6 py-4">
+            $ {{ netIncome(income, "monthly").toFixed(2) }}
+          </td>
+        </tr>
+        <tr
+          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+        >
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            annualy
+          </th>
+          <td class="px-6 py-4">
+            ${{ grossIncome(income, "annualy").toFixed(2) }}
+          </td>
+          <td class="px-6 py-4">
+            $ {{ taxCalculator(income, "annualy").toFixed(2) }}
+          </td>
+          <td class="px-6 py-4">
+            $ {{ netIncome(income, "annualy").toFixed(2) }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mx-2">
+    <a routerLink="/">
+      <button
+        (click)="setIncome()"
+        class="w-full mt-2 lg:w-[400px] hover:shadow-xl hover:shadow-indigo-500/50"
+      >
+        Calculate again
+      </button>
+    </a>
+  </div>
+</div>
